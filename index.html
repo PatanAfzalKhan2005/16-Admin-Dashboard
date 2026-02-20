@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Nova Admin | Dashboard</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Sora:wght@500;600&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="app-shell">
+			<aside class="sidebar" data-sidebar>
+				<div class="sidebar-top">
+					<div class="logo">Nova Admin</div>
+					<button class="sidebar-collapse" type="button" data-collapse-toggle>
+						<span></span>
+						<span></span>
+					</button>
+				</div>
+				<nav class="sidebar-nav">
+					<a class="nav-item active" href="#">
+						<span class="nav-icon">📊</span>
+						<span class="nav-text">Dashboard</span>
+					</a>
+					<a class="nav-item" href="#">
+						<span class="nav-icon">👥</span>
+						<span class="nav-text">Users</span>
+					</a>
+					<a class="nav-item" href="#">
+						<span class="nav-icon">🧾</span>
+						<span class="nav-text">Orders</span>
+					</a>
+					<a class="nav-item" href="#">
+						<span class="nav-icon">📦</span>
+						<span class="nav-text">Products</span>
+					</a>
+					<a class="nav-item" href="#">
+						<span class="nav-icon">📈</span>
+						<span class="nav-text">Analytics</span>
+					</a>
+					<a class="nav-item" href="#">
+						<span class="nav-icon">⚙️</span>
+						<span class="nav-text">Settings</span>
+					</a>
+					<a class="nav-item" href="#">
+						<span class="nav-icon">🚪</span>
+						<span class="nav-text">Logout</span>
+					</a>
+				</nav>
+			</aside>
+
+			<div class="main">
+				<header class="topbar">
+					<button class="mobile-toggle" type="button" data-mobile-toggle>
+						<span></span>
+						<span></span>
+					</button>
+					<div class="search">
+						<input type="search" placeholder="Search dashboards, users, orders" data-global-search />
+					</div>
+					<div class="topbar-actions">
+						<button class="theme-toggle" type="button" data-theme-toggle>
+							<span>Light</span>
+							<span class="toggle-dot"></span>
+						</button>
+						<div class="dropdown" data-dropdown>
+							<button class="icon-button" type="button" data-dropdown-toggle>
+								🔔
+								<span class="badge" data-notification-count>0</span>
+							</button>
+							<div class="dropdown-menu" data-notification-panel></div>
+						</div>
+						<div class="dropdown" data-dropdown>
+							<button class="profile-button" type="button" data-dropdown-toggle>
+								<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="User" />
+								<span>Jordan</span>
+							</button>
+							<div class="dropdown-menu">
+								<a href="#">Profile</a>
+								<a href="#">Settings</a>
+								<a href="#">Logout</a>
+							</div>
+						</div>
+					</div>
+				</header>
+
+				<main class="content">
+					<section class="stats-grid" aria-label="Summary statistics">
+						<article class="stat-card">
+							<div>
+								<p>Total Revenue</p>
+								<h3 data-counter="128400">$0</h3>
+								<span class="trend positive">+12.4%</span>
+							</div>
+							<div class="stat-icon">💰</div>
+						</article>
+						<article class="stat-card">
+							<div>
+								<p>New Users</p>
+								<h3 data-counter="2480">0</h3>
+								<span class="trend positive">+8.1%</span>
+							</div>
+							<div class="stat-icon">✨</div>
+						</article>
+						<article class="stat-card">
+							<div>
+								<p>Orders</p>
+								<h3 data-counter="740">0</h3>
+								<span class="trend negative">-2.4%</span>
+							</div>
+							<div class="stat-icon">🧾</div>
+						</article>
+						<article class="stat-card">
+							<div>
+								<p>Conversion</p>
+								<h3 data-counter="38">0%</h3>
+								<span class="trend positive">+3.9%</span>
+							</div>
+							<div class="stat-icon">🚀</div>
+						</article>
+					</section>
+
+					<section class="charts-grid" aria-label="Analytics charts">
+						<article class="card">
+							<header>
+								<h3>Sales Trend</h3>
+								<p>Last 12 months</p>
+							</header>
+							<canvas id="salesChart" height="140"></canvas>
+						</article>
+						<article class="card">
+							<header>
+								<h3>Monthly Revenue</h3>
+								<p>Category split</p>
+							</header>
+							<canvas id="revenueChart" height="140"></canvas>
+						</article>
+						<article class="card">
+							<header>
+								<h3>User Distribution</h3>
+								<p>Plan breakdown</p>
+							</header>
+							<canvas id="userChart" height="140"></canvas>
+						</article>
+					</section>
+
+					<section class="content-grid">
+						<article class="card table-card">
+							<header class="table-header">
+								<div>
+									<h3>Team Directory</h3>
+									<p data-table-count>0 members</p>
+								</div>
+								<div class="table-actions">
+									<input type="search" placeholder="Search users" data-table-search />
+									<select data-status-filter>
+										<option value="all">All status</option>
+										<option value="Active">Active</option>
+										<option value="Inactive">Inactive</option>
+									</select>
+									<button class="btn primary" type="button" data-open-modal>+ Add User</button>
+								</div>
+							</header>
+							<div class="table-wrapper">
+								<table>
+									<thead>
+										<tr>
+											<th data-sort="id">ID</th>
+											<th data-sort="name">Name</th>
+											<th data-sort="email">Email</th>
+											<th data-sort="role">Role</th>
+											<th data-sort="status">Status</th>
+											<th>Actions</th>
+										</tr>
+									</thead>
+									<tbody data-table-body></tbody>
+								</table>
+							</div>
+							<div class="pagination" data-pagination></div>
+						</article>
+
+						<aside class="side-panels">
+							<article class="card">
+								<header>
+									<h3>Recent Activity</h3>
+									<p>Last 24 hours</p>
+								</header>
+								<ul class="activity-list" data-activity-list></ul>
+							</article>
+							<article class="card">
+								<header>
+									<h3>Transactions</h3>
+									<p>Latest payouts</p>
+								</header>
+								<ul class="transaction-list" data-transaction-list></ul>
+							</article>
+						</aside>
+					</section>
+				</main>
+			</div>
+		</div>
+
+		<div class="modal" data-modal>
+			<div class="modal-content">
+				<button class="modal-close" type="button" data-close-modal>×</button>
+				<h3 data-modal-title>Add user</h3>
+				<form data-modal-form>
+					<label>
+						Full name
+						<input type="text" name="name" required />
+					</label>
+					<label>
+						Email address
+						<input type="email" name="email" required />
+					</label>
+					<label>
+						Role
+						<select name="role" required>
+							<option value="Admin">Admin</option>
+							<option value="Editor">Editor</option>
+							<option value="Analyst">Analyst</option>
+							<option value="Viewer">Viewer</option>
+						</select>
+					</label>
+					<label>
+						Status
+						<select name="status" required>
+							<option value="Active">Active</option>
+							<option value="Inactive">Inactive</option>
+						</select>
+					</label>
+					<div class="modal-actions">
+						<button class="btn primary" type="submit">Save</button>
+						<button class="btn ghost" type="button" data-close-modal>Cancel</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<script type="module" src="script.js"></script>
+	</body>
+</html>
